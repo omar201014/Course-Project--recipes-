@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'recipesProject';
+  selection:string='Recipe';     //default//
+  onNavigate(userSelction:string){
+    this.selection = userSelction ;
+  }
 }
