@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Ingredients } from '../shared/ingredients.component';
+import { ShoppingService } from './shopping-list.service';
 
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
-  styleUrls: ['./shopping-list.component.css']
+  styleUrls: ['./shopping-list.component.css'],
+  providers:[ShoppingService]
 })
 export class ShoppingListComponent implements OnInit {
   ingredients:Ingredients[] =[];
