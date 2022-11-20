@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Recipe {\n  constructor(name, description, imgPath, ingredients) {\n    this.name = name;\n    this.description = description;\n    this.imgPath = imgPath;\n    this.ingredients = ingredients;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
