@@ -8,7 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Deli Recipe | Essence of Tasty';
   selection:string='Recipe';     //default//
-  onNavigate(userSelction:string){
-    this.selection = userSelction ;
-  }
+  
 }

@@ -9,7 +9,7 @@ export class RecipeService{
    recipeSelected = new EventEmitter<Recipe>() 
 
    private recipes:Recipe[] = [
-        new Recipe('Lasagna' , 'Lasagna originated in Italy during the Middle Ages' , 'assets/images/image.jpeg' ,[
+        new Recipe('Lasagna' , 'Lasagna originated in Italy during the Middle Ages' , 'assets/images/classiclasagna.jpg' ,[
           new Ingredients('pasta' ,2),
           new Ingredients('grounded meat' ,5),
           new Ingredients('onion',2),
@@ -27,13 +27,25 @@ export class RecipeService{
           new Ingredients('parsely',5),
           new Ingredients('coriander',3),
           new Ingredients('garlic',1)
-        ])    
+        ]) ,
+        new Recipe('Paella' ,'It is one of the best-known dishes in Spanish cuisine.' ,'assets/images/paella.jpg',[
+          new Ingredients('rice' ,4),
+          new Ingredients('Tomato Paste' ,2),
+          new Ingredients ('Chicken slices' ,15),
+          new Ingredients('onion' ,2),
+          new Ingredients('shrimps',7),
+          new Ingredients('Vegetables',3)
+         ])   
       ]
 
       constructor(private shoppingService:ShoppingService) {}
 
       getRecipe(){
-       return this.recipes.slice();
+       return this.recipes
+    }
+
+    getRecipeById(index:number){
+      return this.recipes[index]
     }
 
     onAddToShoppingList(ingredients:Ingredients[]){

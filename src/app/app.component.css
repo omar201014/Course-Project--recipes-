@@ -1,0 +1,17 @@
+.site-bg{
+    background-image: url(../assets/images/background.jpg);
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.ovelay{
+    background-color: #ffffffc4;
+    background-repeat: no-repeat;
+    height: inherit;
+}
+
+.site-cont{
+    margin-top: 2.8rem;
+    padding: 2rem;
+    border-radius: 15px;
+}
