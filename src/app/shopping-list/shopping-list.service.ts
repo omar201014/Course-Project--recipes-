@@ -11,7 +11,7 @@ export class ShoppingService{
         this.ingredients.push(ingredient);
     }
 
-    addIngrefientsFromRecipe(ingredient:Ingredients[]){
+    addIngredientsFromRecipe(ingredient:Ingredients[]){
         this.ingredients.push(...ingredient)
     }
     onClearIngredients(){

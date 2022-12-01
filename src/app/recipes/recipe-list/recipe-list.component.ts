@@ -9,18 +9,14 @@ import { RecipeService } from '../recpies.service';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  recipes:Recipe[];
-  
-  @Output() recipeSelection = new EventEmitter<Recipe>()
+  recipes:Recipe[];    
 
   constructor(private recipeService:RecipeService ,private route:ActivatedRoute ,private router:Router) { }
 
   ngOnInit(): void {
     this.recipes=this.recipeService.getRecipe()
   }
-  onSelection(recipe:Recipe){
-    this.recipeSelection.emit(recipe)
-  }
+
   onAdd(){
     this.router.navigate(['new'] , {relativeTo:this.route})
   }

@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Ingredients } from "../shared/ingredients.component";
 import { ShoppingService } from "../shopping-list/shopping-list.service";
 import { Recipe } from "./recipe.model";
@@ -6,7 +6,6 @@ import { Recipe } from "./recipe.model";
 @Injectable()
 
 export class RecipeService{
-   recipeSelected = new EventEmitter<Recipe>() 
 
    private recipes:Recipe[] = [
         new Recipe('Lasagna' , 'Lasagna originated in Italy during the Middle Ages' , 'assets/images/classiclasagna.jpg' ,[
@@ -49,7 +48,7 @@ export class RecipeService{
     }
 
     onAddToShoppingList(ingredients:Ingredients[]){
-      this.shoppingService.addIngrefientsFromRecipe(ingredients)
+      this.shoppingService.addIngredientsFromRecipe(ingredients)
     }
 }
 

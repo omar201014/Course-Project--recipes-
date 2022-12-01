@@ -3,13 +3,12 @@
         <button class="btn btn-success" (click)="onAdd()">Add Recipe</button>
     </div>
 </div>
-<hr>
+<hr />
 <div class="row">
     <div class="col-xs-12">        
         <app-recipe-item 
         *ngFor="let recipe of recipes; let i=index;" 
-        [selectedRecipe]="recipe"
-        (recipeSelected)="onSelection(recipe)"
+        [selectedRecipe]="recipe"        
         [index]="i"
         >
     </app-recipe-item>
