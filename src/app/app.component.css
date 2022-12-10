@@ -1,7 +1,14 @@
+body,html{
+    height: 100%;
+}
 .site-bg{
-    background-image: url(../assets/images/background.jpg);
+    background-image: url(../assets/images/background.jpg) !important;
     background-attachment: fixed;
-    height: 100vh;
+    height: 125vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+ 
 }
 
 .ovelay{
@@ -15,3 +22,18 @@
     padding: 2rem;
     border-radius: 15px;
 }
+
+
+    /* Responsive quaries  */
+    @media (min-width: 0px) and (max-width: 575px) {
+        .site-bg{
+         height: 192vh;
+        }
+
+    }
+
+    @media (min-width: 576px) and (max-width: 767px){
+        .site-bg{
+            height: 100%;
+        }
+    }

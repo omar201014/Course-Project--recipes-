@@ -20,4 +20,8 @@ export class ShoppingListComponent implements OnInit {
     this.ingredients.push(ing)
   }
 
+  onEditItem(index){
+    this.shoppingService.ingEditing.next(index)
+  }
+
 }

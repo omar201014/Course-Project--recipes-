@@ -1,0 +1,13 @@
+.col-xs-12{
+    margin: 7px auto;
+}
+
+button{
+    margin: 1rem 4px 0 4px;
+}
+
+
+
+.btn-cancel{
+    margin: 0 !important;
+}
