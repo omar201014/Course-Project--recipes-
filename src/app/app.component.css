@@ -6,7 +6,7 @@ body{
 .ovelay{
     background-color: #ffffffc4;
     background-repeat: no-repeat;
-    height: inherit;
+    height: 100vh;
 }
 
 .site-cont{
@@ -18,14 +18,14 @@ body{
 
     /* Responsive quaries  */
     @media (min-width: 0px) and (max-width: 575px) {
-        .site-bg{
-         height: 192vh;
+        .ovelay{
+         height: auto;
         }
 
     }
 
     @media (min-width: 576px) and (max-width: 767px){
-        .site-bg{
-            height: 100%;
+        .ovelay{
+            height: auto;
         }
     }
