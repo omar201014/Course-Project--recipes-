@@ -34,7 +34,15 @@ export class RecipeService{
           new Ingredients('onion' ,2),
           new Ingredients('shrimps',7),
           new Ingredients('Vegetables',3)
-         ])   
+         ]) ,
+         new Recipe('Penne Alfredo Pasta' , 'This One-Pot Penne Alfredo Pasta wonder is crafted to make getting pasta Alfredo on the table in no time and a slightly healthier option' ,
+         'assets/images/Penne Alfredo.jpg' ,[
+          new Ingredients('milk' ,2.5),
+          new Ingredients('penne pasta',1),
+          new Ingredients('garlic cloves',3),
+          new Ingredients('parmesan cheese' ,3/4),
+          new Ingredients('chicken broth' ,2)
+         ])  
       ]
 
       constructor(private shoppingService:ShoppingService) {}
