@@ -1,14 +1,6 @@
-body,html{
-    height: 100%;
-}
-.site-bg{
-    background-image: url(../assets/images/background.jpg) !important;
-    background-attachment: fixed;
-    height: 125vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
- 
+
+body{
+    background-image: url(../assets/images/background.jpg);
 }
 
 .ovelay{
