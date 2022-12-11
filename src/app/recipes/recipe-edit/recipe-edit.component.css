@@ -11,3 +11,7 @@ button{
 .btn-cancel{
     margin: 0 !important;
 }
+
+input.ng-invalid.ng-touched,textarea.ng-invalid.ng-touched{
+    border: 1px solid red;
+}

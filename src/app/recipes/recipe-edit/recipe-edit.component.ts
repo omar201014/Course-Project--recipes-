@@ -27,14 +27,16 @@ export class RecipeEditComponent implements OnInit {
         this.InitForm()
         
       }
-    )
-    
+    )    
   }
-
   
-
   onSubmit(){
-    console.log(this.recipeForm);
+    console.log(this.recipeForm.value);
+    if(this.editMode){
+      this.recpieService.onUpdateRecipe(this.id,this.recipeForm.value)
+    }else{
+      this.recpieService.onAddRecipe(this.recipeForm.value)
+    }
   }
 
   onAddIngredient(){
@@ -53,10 +55,10 @@ export class RecipeEditComponent implements OnInit {
     
 
     if(this.editMode){
-      const ingredients =this.recpieService.getRecipeById(this.id).ingredients
       recipeName = this.recpieService.getRecipeById(this.id).name
       recipeImgPath = this.recpieService.getRecipeById(this.id).imgPath
       description = this.recpieService.getRecipeById(this.id).description
+      const ingredients =this.recpieService.getRecipeById(this.id).ingredients
 
       if(ingredients){
         for(let ingredient of ingredients) {
@@ -70,7 +72,7 @@ export class RecipeEditComponent implements OnInit {
     
     this.recipeForm = new FormGroup({
         'name':new FormControl(recipeName,[Validators.required]),
-        'image':new FormControl(recipeImgPath,[Validators.required]),
+        'imgPath':new FormControl(recipeImgPath,[Validators.required]),
         'description':new FormControl(description,[Validators.required]),
         'ingredients':ingredientFormArr
     })

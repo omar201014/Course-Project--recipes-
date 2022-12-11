@@ -10,7 +10,7 @@
                 <div class="col-xs-12">
                     <button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
                     <button type="button" class="btn btn-danger">cancel</button>
-                </div>
+                </div>                                                
             </div>
             <div class="row">
                 <div class="col-xs-12">
@@ -30,13 +30,13 @@
                     type="text"
                     id="imagePath"
                     class="form-control"
-                    formControlName="image"
+                    formControlName="imgPath"
                     >
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <img [src]="recipeForm.get('image').value" class="img-responsive">
+                    <img [src]="recipeForm.get('imgPath').value" class="img-responsive">
                 </div>
             </div>
             <div class="row">

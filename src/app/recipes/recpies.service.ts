@@ -48,7 +48,7 @@ export class RecipeService{
       constructor(private shoppingService:ShoppingService) {}
 
       getRecipe(){
-       return this.recipes
+       return this.recipes;
     }
 
     getRecipeById(index:number){
@@ -57,6 +57,13 @@ export class RecipeService{
 
     onAddToShoppingList(ingredients:Ingredients[]){
       this.shoppingService.addIngredientsFromRecipe(ingredients)
+    }
+
+    onAddRecipe(recipe:Recipe){
+      this.recipes.push(recipe)
+    }
+    onUpdateRecipe(index:number , newRecpie:Recipe){
+      this.recipes[index]=newRecpie;
     }
 }
 
