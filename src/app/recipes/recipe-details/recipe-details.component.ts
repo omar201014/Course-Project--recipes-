@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ShoppingService } from 'src/app/shopping-list/shopping-list.service';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recpies.service';
 
@@ -11,16 +12,17 @@ import { RecipeService } from '../recpies.service';
 export class RecipeDetailsComponent implements OnInit {
   recipeItem:Recipe;
   id:number;
-  constructor(private recipeService:RecipeService ,private router:Router,private route:ActivatedRoute) { }
+  constructor(private recipeService:RecipeService ,private router:Router,private route:ActivatedRoute,private shoppingService:ShoppingService) { }
 
   ngOnInit(): void {
     this.route.params
     .subscribe(
       (params:Params)=>{
         this.id=+params['id']
-        this.recipeItem= this.recipeService.getRecipeById(this.id)
+        this.recipeItem= this.recipeService.getRecipeById(this.id)        
       }
     )
+    
   }
 
   onAddToSL(){
