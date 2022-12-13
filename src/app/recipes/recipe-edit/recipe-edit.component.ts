@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RecipeService } from '../recpies.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class RecipeEditComponent implements OnInit {
   get controls() { // a getter!
     return (<FormArray>this.recipeForm.get('ingredients')).controls;
   }
-  constructor(private route:ActivatedRoute , private recpieService:RecipeService) { }
+  constructor(private route:ActivatedRoute ,private router:Router ,private recpieService:RecipeService) { }
 
   ngOnInit(): void {
     this.route.params
@@ -37,6 +37,11 @@ export class RecipeEditComponent implements OnInit {
     }else{
       this.recpieService.onAddRecipe(this.recipeForm.value)
     }
+    this.onCancel()
+  }
+
+  onCancel(){
+    this.router.navigate(['../'] , {relativeTo:this.route})
   }
 
   onAddIngredient(){
