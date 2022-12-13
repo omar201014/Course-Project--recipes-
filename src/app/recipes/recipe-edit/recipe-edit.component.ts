@@ -47,6 +47,9 @@ export class RecipeEditComponent implements OnInit {
   onRemoveIng(index:number){
     (<FormArray>this.recipeForm.get('ingredients')).removeAt(index)
   }
+  onClearAll(){
+    (<FormArray>this.recipeForm.get('ingredients')).clear()
+  }
 
   onAddIngredient(){
     (<FormArray>this.recipeForm.get('ingredients')).push(new FormGroup({
