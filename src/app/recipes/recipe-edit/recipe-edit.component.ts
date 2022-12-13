@@ -44,6 +44,10 @@ export class RecipeEditComponent implements OnInit {
     this.router.navigate(['../'] , {relativeTo:this.route})
   }
 
+  onRemoveIng(index:number){
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index)
+  }
+
   onAddIngredient(){
     (<FormArray>this.recipeForm.get('ingredients')).push(new FormGroup({
       'name':new FormControl(null , [Validators.required]),
@@ -81,6 +85,6 @@ export class RecipeEditComponent implements OnInit {
         'description':new FormControl(description,[Validators.required]),
         'ingredients':ingredientFormArr
     })
-  }
+  } 
 
 }
