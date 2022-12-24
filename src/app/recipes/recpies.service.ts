@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Subject } from "rxjs-compat/Subject";
 import { Ingredients } from "../shared/ingredients.component";
 import { ShoppingService } from "../shopping-list/shopping-list.service";
 import { Recipe } from "./recipe.model";
@@ -6,6 +7,8 @@ import { Recipe } from "./recipe.model";
 @Injectable()
 
 export class RecipeService{
+
+  recipesChanged = new Subject<Recipe[]>();
 
    private recipes:Recipe[] = [
         new Recipe('Lasagna' , 'Lasagna originated in Italy during the Middle Ages' , 'assets/images/classiclasagna.jpg' ,[
@@ -42,8 +45,9 @@ export class RecipeService{
           new Ingredients('garlic cloves',3),
           new Ingredients('parmesan cheese' ,3/4),
           new Ingredients('chicken broth' ,2)
-         ])  
+         ])
       ]
+
 
       constructor(private shoppingService:ShoppingService) {}
 
@@ -55,6 +59,12 @@ export class RecipeService{
       return this.recipes[index]
     }
 
+    upOnFetch(fetchedRecipes:Recipe[]){
+      this.recipes=fetchedRecipes;
+      this.recipesChanged.next(this.recipes);
+      console.log(fetchedRecipes);
+    }
+
     onAddToShoppingList(ingredients:Ingredients[]){
       this.shoppingService.addIngredientsFromRecipe(ingredients)
     }
@@ -64,10 +74,11 @@ export class RecipeService{
     }
     onUpdateRecipe(index:number , newRecpie:Recipe){
       this.recipes[index]=newRecpie;
+      this.recipesChanged.next(this.recipes);
     }
     onDeleteRecipe(index:number){
       this.recipes.splice(index,1)
     }
-    
+
 }
 
