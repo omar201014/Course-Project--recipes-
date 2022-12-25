@@ -1,6 +1,6 @@
+import { RecipeResolverService } from './recipes/recipes-resolver.service';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { AppComponent } from "./app.component";
 import { RecipeDetailsComponent } from "./recipes/recipe-details/recipe-details.component";
 import { RecipeEditComponent } from "./recipes/recipe-edit/recipe-edit.component";
 import { RecipeStartComponent } from "./recipes/recipe-start/recipe-start.component";
@@ -13,10 +13,10 @@ const appRoutes:Routes =[
     {path:'recipes' ,component:RecipesComponent, children:[
         {path:'',component:RecipeStartComponent},
         {path:'new' ,component:RecipeEditComponent},    // pay attention that the router with dynamic paramater must come after this one //
-        {path:':id' , component:RecipeDetailsComponent},        
-        {path:':id/edit' ,component:RecipeEditComponent}
+        {path:':id' , component:RecipeDetailsComponent , resolve:[RecipeResolverService]},
+        {path:':id/edit' ,component:RecipeEditComponent, resolve:[RecipeResolverService]}
     ]},
-    {path:'shopping-list' ,component:ShoppingListComponent}    
+    {path:'shopping-list' ,component:ShoppingListComponent}
 ]
 
 

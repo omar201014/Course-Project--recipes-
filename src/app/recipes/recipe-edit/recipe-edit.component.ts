@@ -25,13 +25,12 @@ export class RecipeEditComponent implements OnInit {
         this.editMode = params['id'] != null;
         //  console.log(this.editMode);  //to check which mode we are in //
         this.InitForm()
-        
+
       }
-    )    
+    )
   }
-  
+
   onSubmit(){
-    console.log(this.recipeForm.value);
     if(this.editMode){
       this.recpieService.onUpdateRecipe(this.id,this.recipeForm.value)
     }else{
@@ -64,7 +63,7 @@ export class RecipeEditComponent implements OnInit {
     let recipeImgPath:string='';
     let description:string='';
     let ingredientFormArr:FormArray=new FormArray([]);
-    
+
 
     if(this.editMode){
       recipeName = this.recpieService.getRecipeById(this.id).name
@@ -81,13 +80,13 @@ export class RecipeEditComponent implements OnInit {
         }
       }
     }
-    
+
     this.recipeForm = new FormGroup({
         'name':new FormControl(recipeName,[Validators.required]),
         'imgPath':new FormControl(recipeImgPath,[Validators.required]),
         'description':new FormControl(description,[Validators.required]),
         'ingredients':ingredientFormArr
     })
-  } 
+  }
 
 }

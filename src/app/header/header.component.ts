@@ -1,4 +1,5 @@
-import { Component} from "@angular/core";
+import { Component, OnDestroy} from "@angular/core";
+import { Subscription } from "rxjs";
 import { DataStorageService } from "../shared/data-storage.service";
 
 
@@ -8,17 +9,22 @@ import { DataStorageService } from "../shared/data-storage.service";
     templateUrl : './header.component.html',
     styleUrls : ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnDestroy {
 
   constructor(private storageService:DataStorageService){}
 
     collapsed:boolean = true;
+    subscription:Subscription
     onSaveData(){
       this.storageService.storeRecipe();
     }
 
     onFetchData(){
-      this.storageService.fetchRecipe();
+      this.subscription = this.storageService.fetchRecipe().subscribe();
+    }
+
+    ngOnDestroy(): void {
+      this.subscription.unsubscribe();
     }
 
 }
