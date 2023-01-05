@@ -1,7 +1,9 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { throwError , BehaviorSubject } from 'rxjs';
+import { catchError , tap } from 'rxjs/operators';
+import { Users } from './user.model';
 
 
 export interface authRes {
@@ -18,7 +20,9 @@ export interface authRes {
 })
 export class AuthServiceService {
 
-  constructor(private http:HttpClient) { }
+  user = new BehaviorSubject<Users>(null);  //to store authenticated users//
+
+  constructor(private http:HttpClient , private router:Router) { }
 
   //sign up method //
   signUp(email:string , password:string){
@@ -28,7 +32,9 @@ export class AuthServiceService {
         password,
         returnSecureToken:true
       }
-    ).pipe(catchError(this.errorHanler))
+    ).pipe(catchError(this.errorHanler) ,tap(resData =>{
+      this.authHandler(resData.email, resData.localId,resData.idToken, +resData.expiresIn);
+    }))
   }
 
   //log in method//
@@ -39,7 +45,28 @@ export class AuthServiceService {
         password,
         returnSecureToken:true
       }
-    ).pipe(catchError(this.errorHanler))
+    ).pipe(catchError(this.errorHanler),tap(resData =>{
+      this.authHandler(resData.email, resData.localId,resData.idToken, +resData.expiresIn);
+    }))
+  }
+
+  //logout method//
+  logOut(){
+    this.user.next(null);
+    this.router.navigate(['/auth']);
+
+  }
+
+  //Authentication Handeling//
+  private authHandler(email:string ,userId:string ,token:string, expiresIn:number){
+      const expirationDate =new Date(new Date().getTime()+ expiresIn * 1000);
+      const user = new Users(
+        email ,
+        userId ,
+        token,
+        expirationDate
+        );
+      this.user.next(user);
   }
 
   //Error Handeling//
