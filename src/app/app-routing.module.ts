@@ -7,11 +7,12 @@ import { RecipeStartComponent } from "./recipes/recipe-start/recipe-start.compon
 import { RecipesComponent } from "./recipes/recipes.component";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { AuthComponent } from './auth/auth.component';
+import { AuthGuardService } from './auth/auth-guard.service';
 
 
 const appRoutes:Routes =[
     {path:'' , redirectTo:'/recipes', pathMatch:'full'},
-    {path:'recipes' ,component:RecipesComponent, children:[
+    {path:'recipes' ,component:RecipesComponent,canActivate:[AuthGuardService],children:[
         {path:'',component:RecipeStartComponent},
         {path:'new' ,component:RecipeEditComponent},    // pay attention that the router with dynamic paramater must come after this one //
         {path:':id' , component:RecipeDetailsComponent , resolve:[RecipeResolverService]},

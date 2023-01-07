@@ -1,6 +1,6 @@
 import { Component,OnDestroy,OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { Ingredients } from 'src/app/shared/ingredients.component';
 import { ShoppingService } from '../shopping-list.service';
 
@@ -30,9 +30,7 @@ export class ShoppingEditComponent implements OnInit ,OnDestroy{
       }
     )
   }
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe()
-  }
+
 
   onSubmitItem(form:NgForm){
     const fromValue = form.value
@@ -47,15 +45,19 @@ export class ShoppingEditComponent implements OnInit ,OnDestroy{
     form.reset();
   }
 
-  
+
 
   onClear(form:NgForm){
     form.reset()
     this.itemEdited= false;
   }
-  onDelete(form:NgForm){  
+  onDelete(form:NgForm){
     this.shoppingService.onDeleteIngredients(this.editedItemIndex)
     this.onClear(form)
   }
-} 
+
+  ngOnDestroy():void {
+    this.subscription.unsubscribe()
+  }
+}
 

@@ -1,4 +1,4 @@
-import { Subject } from "rxjs-compat/Subject";
+import { Subject } from "rxjs";
 import { Ingredients } from "../shared/ingredients.component";
 
 export class ShoppingService{
@@ -25,10 +25,7 @@ export class ShoppingService{
     addIngredientsFromRecipe(ingredient:Ingredients[]){
         this.ingredients.push(...ingredient)
     }
-    // onClearIngredients(){
-    //     this.ingredients.splice(0,this.ingredients.length)
-    // }
-   
+
     onDeleteIngredients(index:number) {
         this.ingredients.splice(index,1)
     }
