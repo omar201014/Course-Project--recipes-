@@ -1,4 +1,6 @@
+import { OnInit } from '@angular/core';
 import { Component, ViewEncapsulation } from '@angular/core';
+import { AuthServiceService } from './auth/auth-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +8,13 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./app.component.css'],
   encapsulation:ViewEncapsulation.None
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Deli Recipe | Essence of Tasty';
-  selection:string='Recipe';     //default//
-  
+
+  constructor(private authService:AuthServiceService) {}
+
+  ngOnInit(): void {
+    this.authService.autoLogin();
+  }
+
 }
