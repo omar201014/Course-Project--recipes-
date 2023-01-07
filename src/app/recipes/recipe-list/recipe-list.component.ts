@@ -1,4 +1,4 @@
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from '../recipe.model';
@@ -26,7 +26,7 @@ export class RecipeListComponent implements OnInit ,OnDestroy {
     );
   this.recipes = this.recipeService.getRecipe();
 }
-  
+
 
 
   onAdd(){
