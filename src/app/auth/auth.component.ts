@@ -23,6 +23,10 @@ export class AuthComponent implements OnInit {
     this.isLoggedin = !this.isLoggedin;
   }
 
+  closeTriggered(){
+    this.isError=null;
+  }
+
 
   onSubmit(formData:NgForm){
     // console.log(formData);

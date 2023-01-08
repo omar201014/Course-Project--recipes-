@@ -1,14 +1,4 @@
 
-body{
-    background-image: url(../assets/images/background.jpg);
-}
-
-.ovelay{
-    background-color: #ffffffc4;
-    background-repeat: no-repeat;
-    height: 200vh;
-}
-
 .site-cont{
     margin-top: 2.8rem;
     padding: 2rem;
@@ -16,16 +6,16 @@ body{
 }
 
 
-    /* Responsive quaries  */
-    @media (min-width: 0px) and (max-width: 575px) {
-        .ovelay{
-         height: auto;
-        }
+    /* Responsive quaries  
+     @media (min-width: 0px) and (max-width: 575px) {
+       .ovelay{
 
+       }
     }
 
     @media (min-width: 576px) and (max-width: 767px){
         .ovelay{
-            height: auto;
+            
         }
-    }
+    } 
+    */
