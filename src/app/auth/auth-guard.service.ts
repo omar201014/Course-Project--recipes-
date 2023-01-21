@@ -15,8 +15,8 @@ export class AuthGuardService implements CanActivate{
     return this.authService.user.pipe(
       take(1),
       map(user =>{
-      return (!user)? this.router.createUrlTree(['/auth']):true;
-    })
+        return (!user)? this.router.createUrlTree(['/auth']):true;
+      })
     )
   }
 

@@ -31,7 +31,6 @@ export class ShoppingEditComponent implements OnInit ,OnDestroy{
     )
   }
 
-
   onSubmitItem(form:NgForm){
     const fromValue = form.value
     const newIngredient = new Ingredients(fromValue.ingName,fromValue.ingAmount)
