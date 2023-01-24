@@ -11,5 +11,5 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Live Preview 
-This Project is deployed Via this [link](https://omar201014.github.io/Deli-Recipes/)
+This Project is deployed Via this [link](https://omar201014.github.io/Deli-Recipes/) or [link2](https://deli-rexpies.web.app)
 
