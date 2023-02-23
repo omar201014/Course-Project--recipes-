@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
 input.ng-invalid.ng-touched{
   border: 1px solid red;
 }
@@ -5,3 +7,92 @@ input.ng-invalid.ng-touched{
 .help-block{
   color:#a94442 !important;
 }
+
+.card{
+  display: grid !important;
+  place-items: center !important;
+  margin: 0 !important;
+  padding: 0 24px !important;
+  background-image: url(../../assets/images/background.svg) !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  font-family: 'Ubuntu','san-serif' !important;
+  color: #000 !important;
+  animation: rotate 8s infinite alternate linear !important;
+}
+
+.login-card{
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  margin: 0 20px;
+  padding: 70px 30px 44px;
+  border-radius: 1.25rem;
+  background: #fff;  
+
+}
+
+.login-card > h2{
+  text-align: center;
+  color: rgba(0, 0, 0, 0.664);
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0 0 30px;
+
+}
+
+.login-form{
+  width: 100% !important;
+  display: grid !important;
+  gap: 16px !important;
+  margin: 0 !important;  
+}
+
+.login-form > input , .login-form > button {
+  width: 100% !important;
+  height: 50px !important;
+}
+
+.login-form > input{
+  border: 2px solid #ebebeb !important;
+  font-family: inherit !important;
+  font-size: 15px !important;
+  padding: 0 16px !important;
+  border-radius: 1.25rem !important;
+  transition: all 0.375s !important;
+}
+
+.login-form > input:hover{
+  border: 2px solid #10449a;  
+}
+
+.login-form > button{
+  cursor: pointer !important;
+  width: 100% !important;
+  padding: 0 16px !important;
+  text-transform: uppercase;
+  border-radius: 1.25rem !important;
+  font-size: 1.5rem !important;
+  font-weight: 900 !important;
+  border: 0 !important;
+  text-align: center !important;
+  letter-spacing: 2px !important;
+  background: #216ce7 !important;
+  color: #f9f9f9 !important;
+  transition: all 0.375s !important;
+}
+
+.login-form > button:hover{
+  background: #10449a !important;
+}
+
+@keyframes rotate{
+  100%{
+    background-position: 56% 20%;
+  }
+}
+
+/* media quaries */
+
+
+
