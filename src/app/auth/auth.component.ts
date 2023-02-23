@@ -1,5 +1,5 @@
 import { NgForm } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { authRes, AuthServiceService } from './auth-service.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
@@ -7,16 +7,18 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  styleUrls: ['./auth.component.css'],
+  encapsulation:ViewEncapsulation.None 
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent implements OnInit ,OnDestroy {
 
   isLoggedin:boolean=true;
   isLoading:boolean=false;
   isError:string=null;
-  constructor(private authService:AuthServiceService ,private router:Router) { }
+  constructor(private authService:AuthServiceService ,private router:Router ,private renderer:Renderer2) { }
 
   ngOnInit(): void {
+    this.renderer.addClass(document.body, 'card');
   }
 
   onSwitchMode(){
@@ -57,5 +59,7 @@ export class AuthComponent implements OnInit {
     })
     formData.reset();
   }
-
+  ngOnDestroy(): void {
+    this.renderer.removeClass(document.body, 'card');
+  }
 }
